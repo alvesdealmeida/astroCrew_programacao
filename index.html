@@ -155,6 +155,56 @@ body{font-family:'Exo 2',sans-serif;background:var(--bg);color:var(--text);heigh
 
 /* scrollbar */
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--bd);border-radius:2px}
+
+/* ── RESPONSIVIDADE (CELULARES E TABLETS) ── */
+@media (max-width: 768px) {
+  /* Ajuste do Corpo: permite scroll vertical se necessário */
+  body { height: auto; overflow-y: auto; }
+
+  /* Topbar: Empilha os elementos ou esconde o XP para caber o logo */
+  #topbar { height: auto; flex-wrap: wrap; padding: 10px; gap: 10px; }
+  .var-chip { order: 3; width: 100%; justify-content: center; } /* Barra de energia ocupa linha toda */
+  .tv { order: 2; }
+  
+  /* Layout Principal: Muda de Lado-a-Lado para Empilhado (Vertical) */
+  #main { flex-direction: column; height: auto; overflow: visible; }
+  
+  /* Paleta de Blocos: Transforma em scroll horizontal no topo */
+  #pal { 
+    width: 100%; 
+    height: 120px; 
+    flex-direction: row; 
+    overflow-x: auto; 
+    overflow-y: hidden;
+    white-space: nowrap;
+    border-right: none;
+    border-bottom: 1px solid var(--bd);
+  }
+  .cat { display: none; } /* Esconde categorias para ganhar espaço */
+  .pb { min-width: 130px; margin: 5px; }
+
+  /* Workspace (Área de código) e Game Panel (Jogo) */
+  #ws-wrap, #gp { width: 100%; border-right: none; min-height: 350px; }
+  
+  /* Redimensiona o Grid do jogo para não transbordar */
+  #ga { padding: 10px; }
+  #grid { transform: scale(0.9); } /* Diminui levemente o tamanho do grid */
+
+  /* Barra de Botoes Inferior */
+  #bot { 
+    position: sticky; 
+    bottom: 0; 
+    flex-wrap: wrap; 
+    height: auto; 
+    padding: 15px; 
+    z-index: 50; 
+  }
+  #sb { width: 100%; margin-bottom: 10px; text-align: center; }
+  
+  /* Tela de Seleção de Planetas */
+  .planets-row { flex-direction: column; align-items: center; }
+  .lv-card { width: 90vw; } /* Cards ficam largos no celular */
+}
 </style>
 </head>
 <body>
